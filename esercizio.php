@@ -30,23 +30,25 @@ public function __construct($name,$surname,$age,$email){
 //   return $this->name;
 // }
 public function getAge(){
-    return $this->anni;
+    return $this->age;
 }
 public function isMaggiorenne(){
-  return $this->anni>18;
+  return $this->age >= 18;
 }
 }
 
 
-// $Marco = new Persona('Marco','Pietrini',30,'marcopietrini@hotmail.it');
-// // var_dump($Marco);
+$Marco = new Persona('Marco','Pietrini',31,'marcopietrini@hotmail.it');
+var_dump($Marco->isMaggiorenne());
+
+// var_dump($Marco);
 // $Pietro = new Persona('Pietro','Donadio',22,'pietrodonadio@hotmail.it');
 // $Leonardo = new Persona('Leonardo','Apicella',31,'leonardoapicella@hotmail.it');
 //
 // $persona=[$Marco,$Pietro,$Leonardo];
 // print_r ($persona);
 
-$ragazzi=[["name"=>"Marco","surname"=>"Pietrini","age"=>31,"email"=>"marcopietrini@outlook.it"],["name"=>"Pietro","surname"=>"Donadio","age"=>34,"email"=>"pietrodonadio@outlook.it"],["name"=>"Leonardo","surname"=>"Apicella","age"=>22,"email"=>"leonardoapicella@outlook.it"]];
+$ragazzi=[["name"=>"Marco","surname"=>"Pietrini","age"=>31,"email"=>"marcopietrini@outlook.it"],["name"=>"Pietro","surname"=>"Donadio","age"=>34,"email"=>"pietrodonadio@outlook.it"],["name"=>"Leonardo","surname"=>"Apicella","age"=>20,"email"=>"leonardoapicella@outlook.it"]];
 
 // $oggettiragazzi=[];
 // foreach ($ragazzi as $key => $value) {
@@ -94,6 +96,7 @@ $salotto= new Stanza('salotto',20,$oggettiragazzi);
 $pippoBaudo= new Persona('Pippo','Baudo',87,'pippobaudo@hotmail.it');
 $salotto->addPersona($pippoBaudo);
 $salotto->addPersona('Alfredo');
+// $salotto->addPersona('Leone','Ferragni',5,'leone@hotmail.it')
 // var_dump($salotto);
  ?>
 
