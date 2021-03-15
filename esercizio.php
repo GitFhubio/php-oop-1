@@ -35,17 +35,28 @@ public function getAge(){
 }
 
 
-$Marco = new Persona('Marco','Pietrini',30,'marcopietrini@hotmail.it');
-// var_dump($Marco);
-$Pietro = new Persona('Pietro','Donadio',22,'pietrodonadio@hotmail.it');
-$Leonardo = new Persona('Leonardo','Apicella',31,'leonardoapicella@hotmail.it');
-
-$persona=[$Marco,$Pietro,$Leonardo];
+// $Marco = new Persona('Marco','Pietrini',30,'marcopietrini@hotmail.it');
+// // var_dump($Marco);
+// $Pietro = new Persona('Pietro','Donadio',22,'pietrodonadio@hotmail.it');
+// $Leonardo = new Persona('Leonardo','Apicella',31,'leonardoapicella@hotmail.it');
+//
+// $persona=[$Marco,$Pietro,$Leonardo];
 // print_r ($persona);
+
+$ragazzi=[["name"=>"Marco","surname"=>"Pietrini","age"=>31,"email"=>"marcopietrini@outlook.it"],["name"=>"Pietro","surname"=>"Donadio","age"=>34,"email"=>"pietrodonadio@outlook.it"],["name"=>"Leonardo","surname"=>"Apicella","age"=>22,"email"=>"leonardoapicella@outlook.it"]];
+
+$oggettiragazzi=[];
+foreach ($ragazzi as $key => $value) {
+  $oggettiragazzi[] = new Persona($value["name"],$value["surname"],$value["age"],$value["email"]);
+}
+
+print_r($oggettiragazzi);
+
+
 
 class Stanza {
 public $tipologia;
-private $persone;
+private $persone =[];
 public $metriquadri;
 
 public function __construct($tipologia,$metriquadri,$persone){
@@ -58,7 +69,7 @@ public function addPersona($persona){
 try{
   $this->persone[] = $persona;
 if(get_class($persona) !== Persona){
-$error = 'Devi inserire un oggetto di classe persona.'.$persona.' non può essere definito tale';  
+$error = 'Devi inserire un oggetto di classe persona.'.$persona.' non può essere definito tale';
 throw new Exception($error);}
 }
   catch (Exception $e) {
@@ -70,7 +81,7 @@ public function showPersone(){
   return $this->persone;
 }
 }
-$salotto= new Stanza('salotto',20,[$Marco,$Pietro,$Leonardo]);
+$salotto= new Stanza('salotto',20,$oggettiragazzi);
 
 $pippoBaudo= new Persona('Pippo','Baudo',87,'pippobaudo@hotmail.it');
 $salotto->addPersona($pippoBaudo);
@@ -86,7 +97,7 @@ $salotto->addPersona('Alfredo');
  	</head>
  	<body>
     <h1>All'inizio nel salotto c'erano:</h1>
-<?php foreach ($persona as $value){ ?>
+<?php foreach ($oggettiragazzi as $value){ ?>
 <p><?php echo $value->name ?></p>
 <p><?php echo $value->getAge() ?></p>
 <?php } ?>
