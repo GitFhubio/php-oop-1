@@ -75,19 +75,20 @@ public function __construct($tipologia,$metriquadri,$persone){
  $this->tipologia = $tipologia;
 }
 
-public function addPersona(Persona $persona){
+public function addPersona($persona){
+try{
+  if(get_class($persona) == Persona){
   if($persona->isMaggiorenne()){
     $this->persone[] = $persona;
-  }
-// try{
-//   $this->persone[] = $persona;
-// if(get_class($persona) !== Persona){
-// $error = 'Devi inserire un oggetto di classe persona.'.$persona.' non può essere definito tale';
-// throw new Exception($error);}}
-//   catch (Exception $e) {
-//         echo 'Errore: ',  $e->getMessage(), "\n";
-// }
+  }}
+else{
+$error = 'Possono entrare solo maggiorenni.'.$persona.' non lo è';
+throw new Exception($error);}}
+  catch (Exception $e) {
+        echo 'Errore: ',  $e->getMessage(), "\n";
 }
+}
+
 
 public function showPersone(){
   return $this->persone;
@@ -95,10 +96,10 @@ public function showPersone(){
 }
 $salotto= new Stanza('salotto',20,$oggettiragazzi);
 
-$pippoBaudo= new Persona('Pippo','Baudo',87,'pippobaudo@hotmail.it');
+$pippoBaudo= new Persona('Pippo','Baudo',18,'pippobaudo@hotmail.it');
 $salotto->addPersona($pippoBaudo);
 // $salotto->addPersona('Alfredo');
-// $salotto->addPersona('Leone','Ferragni',5,'leone@hotmail.it')
+$salotto->addPersona('Leone','Ferragni',5,'leone@hotmail.it')
 // var_dump($salotto);
  ?>
 
