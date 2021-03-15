@@ -39,7 +39,7 @@ public function isMaggiorenne(){
 
 
 $Marco = new Persona('Marco','Pietrini',17,'marcopietrini@hotmail.it');
-var_dump($Marco->isMaggiorenne());
+// var_dump($Marco->isMaggiorenne());
 
 // var_dump($Marco);
 // $Pietro = new Persona('Pietro','Donadio',22,'pietrodonadio@hotmail.it');
@@ -97,7 +97,7 @@ $salotto= new Stanza('salotto',20,$oggettiragazzi);
 
 $pippoBaudo= new Persona('Pippo','Baudo',87,'pippobaudo@hotmail.it');
 $salotto->addPersona($pippoBaudo);
-$salotto->addPersona('Alfredo');
+// $salotto->addPersona('Alfredo');
 // $salotto->addPersona('Leone','Ferragni',5,'leone@hotmail.it')
 // var_dump($salotto);
  ?>
