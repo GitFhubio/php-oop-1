@@ -14,7 +14,7 @@ A domani branco!
 
 class Persona {
 
-private $name;
+public $name;
 public $surname;
 private $age;
 public $email;
@@ -26,9 +26,9 @@ public function __construct($name,$surname,$age,$email){
  $this->email = $email;
 }
 
-public function getName(){
-  return $this->name;
-}
+// public function getName(){
+//   return $this->name;
+// }
 public function getAge(){
     return $this->anni;
 }
@@ -57,6 +57,7 @@ public function __construct($tipologia,$metriquadri,$persone){
 public function addPersona(Persona $persona){
 $this->persone[] = $persona;
 }
+
 public function showPersone(){
   return $this->persone;
 }
@@ -78,12 +79,12 @@ $salotto->addPersona($pippoBaudo);
  	<body>
     <h1>All'inizio nel salotto c'erano:</h1>
 <?php foreach ($persona as $value){ ?>
-<p><?php echo $value->getName() ?></p>
+<p><?php echo $value->name ?></p>
 <p><?php echo $value->getAge() ?></p>
 <?php } ?>
 <h1>Ora nel salotto ci sono:</h1>
 <p><?php foreach($salotto->showPersone() as $persona) {?></p>
-  <p><?php echo $persona->getName() ?></p>
+  <p><?php echo $persona->name ?></p>
 <?php } ?>
  	</body>
  </html>
