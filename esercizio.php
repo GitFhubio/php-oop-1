@@ -45,14 +45,19 @@ public function getAge(){
 
 $ragazzi=[["name"=>"Marco","surname"=>"Pietrini","age"=>31,"email"=>"marcopietrini@outlook.it"],["name"=>"Pietro","surname"=>"Donadio","age"=>34,"email"=>"pietrodonadio@outlook.it"],["name"=>"Leonardo","surname"=>"Apicella","age"=>22,"email"=>"leonardoapicella@outlook.it"]];
 
-$oggettiragazzi=[];
-foreach ($ragazzi as $key => $value) {
-  $oggettiragazzi[] = new Persona($value["name"],$value["surname"],$value["age"],$value["email"]);
-}
+// $oggettiragazzi=[];
+// foreach ($ragazzi as $key => $value) {
+//   $oggettiragazzi[] = new Persona($value["name"],$value["surname"],$value["age"],$value["email"]);
+// }
+//
+// print_r($oggettiragazzi);
 
-print_r($oggettiragazzi);
+// function myfunction($persona)
+// {return new Persona($persona["name"],$persona["surname"],$persona["age"],$persona["email"]);
+// }
+// $oggettiragazzi= array_map("myfunction",$ragazzi);
 
-
+$oggettiragazzi= array_map(function($persona) {return new Persona($persona["name"],$persona["surname"],$persona["age"],$persona["email"]);}, $ragazzi);
 
 class Stanza {
 public $tipologia;
