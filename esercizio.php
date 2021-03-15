@@ -54,8 +54,16 @@ public function __construct($tipologia,$metriquadri,$persone){
  $this->tipologia = $tipologia;
 }
 
-public function addPersona(Persona $persona){
-$this->persone[] = $persona;
+public function addPersona($persona){
+try{
+  $this->persone[] = $persona;
+  $error = 'Devi inserire un oggetto di classe persona,Alfredo non lo è.';
+throw new Exception($error);}
+  catch (Exception $e) {
+    if(get_class($persona) !== Persona){
+        echo 'Errore: ',  $e->getMessage(), "\n";
+}
+}
 }
 
 public function showPersone(){
@@ -66,7 +74,7 @@ $salotto= new Stanza('salotto',20,[$Marco,$Pietro,$Leonardo]);
 
 $pippoBaudo= new Persona('Pippo','Baudo',87,'pippobaudo@hotmail.it');
 $salotto->addPersona($pippoBaudo);
-
+$salotto->addPersona('Alfredo');
 // var_dump($salotto);
  ?>
 
