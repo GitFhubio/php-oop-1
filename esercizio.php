@@ -32,6 +32,9 @@ public function __construct($name,$surname,$age,$email){
 public function getAge(){
     return $this->anni;
 }
+public function isMaggiorenne(){
+  return $this->anni>18;
+}
 }
 
 
@@ -104,7 +107,6 @@ $salotto->addPersona('Alfredo');
     <h1>All'inizio nel salotto c'erano:</h1>
 <?php foreach ($oggettiragazzi as $value){ ?>
 <p><?php echo $value->name ?></p>
-<p><?php echo $value->getAge() ?></p>
 <?php } ?>
 <h1>Ora nel salotto ci sono:</h1>
 <p><?php foreach($salotto->showPersone() as $persona) {?></p>
