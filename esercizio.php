@@ -57,13 +57,16 @@ public function __construct($tipologia,$metriquadri,$persone){
 public function addPersona(Persona $persona){
 $this->persone[] = $persona;
 }
+public function showPersone(){
+  return $this->persone;
+}
 }
 $salotto= new Stanza('salotto',20,[$Marco,$Pietro,$Leonardo]);
 
 $pippoBaudo= new Persona('Pippo','Baudo',87,'pippobaudo@hotmail.it');
 $salotto->addPersona($pippoBaudo);
 
-var_dump($salotto);
+// var_dump($salotto);
  ?>
 
  <!DOCTYPE html>
@@ -73,9 +76,14 @@ var_dump($salotto);
  		<title></title>
  	</head>
  	<body>
+    <h1>All'inizio nel salotto c'erano:</h1>
 <?php foreach ($persona as $value){ ?>
 <p><?php echo $value->getName() ?></p>
 <p><?php echo $value->getAge() ?></p>
+<?php } ?>
+<h1>Ora nel salotto ci sono:</h1>
+<p><?php foreach($salotto->showPersone() as $persona) {?></p>
+  <p><?php echo $persona->getName() ?></p>
 <?php } ?>
  	</body>
  </html>
