@@ -11,6 +11,7 @@ A domani branco!
 :)))) -->
 
 <?php
+$current_year = date('Y');
 
 class Persona {
 
@@ -18,7 +19,7 @@ public $name;
 public $surname;
 private $age;
 public $email;
-
+// public $maggiorenne;
 public function __construct($name,$surname,$age,$email){
  $this->name = $name;
  $this->surname = $surname;
@@ -35,10 +36,19 @@ public function getAge(){
 public function isMaggiorenne(){
   return $this->age >= 18;
 }
+// public function setMaggiorenne($current_year){
+//   if($current_year - $this->getAge() > 2003){
+//     $this->maggiorenne = false;
+//   } else{
+//     $this->maggiorenne = true;
+//   }
+// }
 }
 
 
 $Marco = new Persona('Marco','Pietrini',17,'marcopietrini@hotmail.it');
+// $Marco->setMaggiorenne($current_year);
+// var_dump($Marco->maggiorenne);
 // var_dump($Marco->isMaggiorenne());
 
 // var_dump($Marco);
