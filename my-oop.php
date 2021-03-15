@@ -82,7 +82,7 @@ try{
     $this->persone[] = $persona;
   }}
 else{
-$error = 'Possono entrare solo maggiorenni.'.$persona.' non lo è';
+$error = 'Possono entrare solo persone(e maggiorenni).'.$persona.' non lo è';
 throw new Exception($error);}}
   catch (Exception $e) {
         echo 'Errore: ',  $e->getMessage(), "\n";
