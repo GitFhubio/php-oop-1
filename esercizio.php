@@ -38,7 +38,7 @@ public function isMaggiorenne(){
 }
 
 
-$Marco = new Persona('Marco','Pietrini',31,'marcopietrini@hotmail.it');
+$Marco = new Persona('Marco','Pietrini',17,'marcopietrini@hotmail.it');
 var_dump($Marco->isMaggiorenne());
 
 // var_dump($Marco);
@@ -77,7 +77,8 @@ public function __construct($tipologia,$metriquadri,$persone){
 
 public function addPersona($persona){
 try{
-  $this->persone[] = $persona;
+  if ($persona->isMaggiorenne()){
+  $this->persone[] = $persona;}
 if(get_class($persona) !== Persona){
 $error = 'Devi inserire un oggetto di classe persona.'.$persona.' non può essere definito tale';
 throw new Exception($error);}
