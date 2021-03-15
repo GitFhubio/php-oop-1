@@ -57,8 +57,8 @@ public function __construct($tipologia,$metriquadri,$persone){
 public function addPersona($persona){
 try{
   $this->persone[] = $persona;
-  $error = 'Devi inserire un oggetto di classe persona.';
 if(get_class($persona) !== Persona){
+$error = 'Devi inserire un oggetto di classe persona.'.$persona.' non può essere definito tale';  
 throw new Exception($error);}
 }
   catch (Exception $e) {
